@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/stock_data?currentSchema=stock
+    username: postgres
+    password: guilin@2022
+    hikari:
+      minimum-idle: 1
+      maximum-pool-size: 5
+      connection-timeout: 30000
+
+  jackson:
+    deserialization:
+      use-big-decimal-for-floats: true
+    serialization:
+      write-bigdecimal-as-plain: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 30
+
+
+stock:
+  path: "http://127.0.0.1:9000/api/public/"
+
+
+task:
+  enable: false
+  us-enable: false
